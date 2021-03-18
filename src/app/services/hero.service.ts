@@ -1,6 +1,6 @@
 import { MessageService } from './message.service';
-import { Hero } from './hero';
-import { HEROES } from './mock-heroes';
+import { Hero } from '../model/hero';
+import { HEROES } from '../mock-heroes';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
@@ -38,11 +38,11 @@ export class HeroService {
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-  
+
       console.error(error);
-  
+
       this.log(`${operation} failed: ${error.message}`);
-  
+
       return of(result as T);
     };
   }
